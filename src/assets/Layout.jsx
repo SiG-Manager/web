@@ -138,7 +138,7 @@ function Layout() {
                 </div>
             </div>
 
-            <div className={`mb-5 ${isMobile ? "" : "p-2"}`}
+            <div className={`mb-5 ${isMobile ? "p-2" : "p-2"}`}
                 style={{
                     width: isMobile ? "" : "calc(100% - 74px)",
                     transform: isMobile ? "" : "translateX(74px)",
