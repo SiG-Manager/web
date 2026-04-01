@@ -1,0 +1,9 @@
+[data-theme=light] {
+    --bs-body-bg: white;
+
+    .bg-primary {
+        --bs-primary-rgb: 41, 58, 76;
+        --bs-body-color: white;
+        --bs-heading-color: white;
+    }
+}
