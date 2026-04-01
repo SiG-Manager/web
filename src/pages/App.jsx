@@ -6,13 +6,9 @@ import Const from "../assets/Const"
 import Employees from "./Employees/Employees"
 import EmployeeInfo from "./Employees/EmployeeInfo"
 import ActiveShifts from "./Shifts/ActiveShifts"
-import ActiveCarsShiftsInfo from "./Shifts/Shift/Info/Active/ActiveCarsShiftInfo"
-import ActiveFoodShiftsInfo from "./Shifts/Shift/Info/Active/ActiveFoodShiftInfo"
-import ActiveTrainShiftsInfo from "./Shifts/Shift/Info/Active/ActiveTrainShiftInfo"
-import ActiveCarsShiftInfoUpdate from "./Shifts/Shift/Update/Active/ActiveCarsShiftUpdate"
-import ActiveFoodShiftInfoUpdate from "./Shifts/Shift/Update/Active/ActiveFoodShiftUpdate"
-import ActiveTrainShiftInfoUpdate from "./Shifts/Shift/Update/Active/ActiveTrainShiftUpdate"
 import ClosedShifts from "./Shifts/ClosedShifts"
+import ShiftInfo from "./Shifts/ShiftInfo"
+import UpdateShiftInfo from "./Shifts/UpdateShiftInfo"
 
 function App() {
     return (
@@ -26,14 +22,8 @@ function App() {
                     <Route path={`${Const.routes.activeShifts}`} element={<ActiveShifts/>}/>
                     <Route path={`${Const.routes.closedShifts}`} element={<ClosedShifts/>}/>
                     
-                    <Route path={`${Const.routes.activeShiftInfo.cars}/:id`} element={<ActiveCarsShiftsInfo/>}/>
-                    <Route path={`${Const.routes.activeShiftInfo.food}/:id`} element={<ActiveFoodShiftsInfo/>}/>
-                    <Route path={`${Const.routes.activeShiftInfo.train}/:id`} element={<ActiveTrainShiftsInfo/>}/>
-                    
-                    <Route path={`${Const.routes.activeShiftInfoUpdate.cars}/:id`} element={<ActiveCarsShiftInfoUpdate/>}/>
-                    <Route path={`${Const.routes.activeShiftInfoUpdate.food}/:id`} element={<ActiveFoodShiftInfoUpdate/>}/>
-                    <Route path={`${Const.routes.activeShiftInfoUpdate.train}/:id`} element={<ActiveTrainShiftInfoUpdate/>}/>
-
+                    <Route path={`${Const.routes.shiftInfo}/:state/:type/:id`} element={<ShiftInfo/>}/>
+                    <Route path={`${Const.routes.shiftInfo}/:state/:type/:id/update`} element={<UpdateShiftInfo/>}/>
 
                     <Route path="*" element={<NotFound/>} />
                 </Route>
