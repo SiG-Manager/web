@@ -1,39 +1,41 @@
-import { api } from "./client";
+import ApiConst from "./base/apiConst";
+import { api } from "./base/client";
 
 export const activeFoodShiftsWebClient = {
     create: async (userData, token) => {
-        const response = await api.post('/ActiveFoodShifts', {
-            adminId: userData.adminId,
-            firstTicketNumber: userData.firstTicketNumber,
-            sugarAmount: userData.sugarAmount,
-            colorSugarAmount: userData.colorSugarAmount,
-            ticketPrice: userData.ticketPrice,
-        }, token);
-        return response;
+        return await api.post(
+            ApiConst.endpoints.activeFoodShifts,
+            ApiConst.createTemplates.activeFoodShift(userData),
+            token
+        );
     },
 
     update: async (id, userData, token) => {
-        const response = await api.put(`/ActiveFoodShifts/${id}`, {
-            adminId: userData.adminId,
-            firstTicketNumber: userData.firstTicketNumber,
-            sugarAmount: userData.sugarAmount,
-            colorSugarAmount: userData.colorSugarAmount,
-            ticketPrice: userData.ticketPrice,
-            openDateTime: userData.openDateTime
-        }, token);
-
-        return response;
+        return await api.put(
+            ApiConst.endpoints.activeFoodShiftById(id),
+            ApiConst.updateTemplates.activeFoodShift(userData),
+            token
+        );
     },
 
     getAll: async (token) => {
-        return await api.get('/ActiveFoodShifts', token)
+        return await api.get(
+            ApiConst.endpoints.activeFoodShifts,
+            token
+        )
     },
 
     getById: async (id, token) => {
-        return await api.get(`/ActiveFoodShifts/${id}`, token)
+        return await api.get(
+            ApiConst.endpoints.activeFoodShiftById(id),
+            token
+        )
     },
 
     delete: async (id, token) => {
-        return await api.delete(`/ActiveFoodShifts/${id}`, token)
+        return await api.delete(
+            ApiConst.endpoints.activeFoodShiftById(id),
+            token
+        )
     }
 };

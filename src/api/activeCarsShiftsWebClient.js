@@ -1,39 +1,41 @@
-import { api } from "./client";
+import ApiConst from "./base/apiConst";
+import { api } from "./base/client";
 
 export const activeCarsShiftsWebClient = {
     create: async (userData, token) => {
-        const response = await api.post('/ActiveCarsShifts', {
-            adminId: userData.adminId,
-            supportId: userData.supportId,
-            firstTicketNumber: userData.firstTicketNumber,
-            parkName: userData.parkName,
-            ticketPrice: userData.ticketPrice,
-        }, token);
-        return response;
+        return await api.post(
+            ApiConst.endpoints.activeCarsShifts,
+            ApiConst.createTemplates.activeCarsShift(userData),
+            token
+        );
     },
 
     update: async (id, userData, token) => {
-        const response = await api.put(`/ActiveCarsShifts/${id}`, {
-            adminId: userData.adminId,
-            supportId: userData.supportId,
-            firstTicketNumber: userData.firstTicketNumber,
-            parkName: userData.parkName,
-            ticketPrice: userData.ticketPrice,
-            openDateTime: userData.openDateTime
-        }, token);
-
-        return response;
+        return await await api.put(
+            ApiConst.endpoints.activeCarsShiftById(id),
+            ApiConst.updateTemplates.activeCarsShift(userData),
+            token
+        );
     },
 
     getAll: async (token) => {
-        return await api.get('/ActiveCarsShifts', token)
+        return await api.get(
+            ApiConst.endpoints.activeCarsShifts,
+            token
+        )
     },
 
     getById: async (id, token) => {
-        return await api.get(`/ActiveCarsShifts/${id}`, token)
+        return await api.get(
+            ApiConst.endpoints.activeCarsShiftById(id),
+            token
+        )
     },
 
     delete: async (id, token) => {
-        return await api.delete(`/ActiveCarsShifts/${id}`, token)
+        return await api.delete(
+            ApiConst.endpoints.activeCarsShiftById(id),
+            token
+        )
     }
 };

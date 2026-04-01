@@ -20,7 +20,7 @@ class Const {
     // Активные смены (инфо)
     static activeCarsShiftInfoUrl = "/shift-info/active/cars"
     static activeFoodShiftInfoUrl = "/shift-info/active/food"
-    static activeTrainShiftInfoUrl = "/shift-info/active/train"  // исправлено: было /shifts-info
+    static activeTrainShiftInfoUrl = "/shift-info/active/train" 
 
     // Обновление активных смен
     static activeCarsShiftInfoUpdateUrl = "/shift-info/active/cars/update"
