@@ -7,9 +7,11 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   
   const allowedHosts = [
-    env.HOST_URL,
-    env.HOST_IP
+    env.VITE_HOST_URL,
+    env.VITE_HOST_IP
   ].filter(host => host && host.trim() !== '')
+  console.log(import.meta.env)
+  console.log(env.VITE_HOST_IP)
   
   return {
     plugins: [react()],

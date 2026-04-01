@@ -13,6 +13,7 @@ function ActiveShifts() {
     const [isLoading, setIsLoading] = useState(false)
 
     const [employees, setEmployees] = useState([])
+
     const [carsShifts, setCarsShifts] = useState([])
     const [foodShifts, setFoodShifts] = useState([])
     const [trainShifts, setTrainShifts] = useState([])
@@ -27,6 +28,7 @@ function ActiveShifts() {
         async function loadCarsShifts() {
             setIsLoading(true)
             var data = await activeCarsShiftsWebClient.getAll(TOKEN)
+            console.log(data)
             setCarsShifts(data)
         }
 

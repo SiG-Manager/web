@@ -1,29 +1,41 @@
-const getBaseUrl = () => {
-    const hostname = window.location.hostname;
-    
-    if (hostname === 'localhost' || hostname === '127.0.0.1') {
-        return import.meta.env.ALT_API_URL;
-    }
-    
-    return import.meta.env.API_URL;
-};
-
-const BASE_URL = getBaseUrl();
-
 const logError = (context) => {
     if (import.meta.env.DEV) {
-        console.error('API request failed:', context);
+        console.error('❌ API request failed:', context);
+    }
+};
+
+const logRequest = (method, url, status, data, error = null) => {
+    if (import.meta.env.DEV) {
+        const style = status >= 200 && status < 300 ? 'color: green' : 'color: red';
+        console.groupCollapsed(
+            `%c📡 ${method} ${url}`,
+            style,
+            status ? `(${status})` : ''
+        );
+        console.log('URL:', url);
+        console.log('Status:', status || '❌ No response');
+        if (data) console.log('Response:', data);
+        if (error) console.error('Error:', error);
+        console.groupEnd();
     }
 };
 
 class ApiClient {
-    constructor(baseURL) {
-        this.baseURL = baseURL;
+    constructor() {
+        const hostname = window.location.hostname;
+
+        if (hostname === 'localhost' || hostname === '127.0.0.1') {
+            this.baseURL = import.meta.env.VITE_ALT_API_URL;
+        }
+        else {
+            this.baseURL = import.meta.env.VITE_API_URL;
+        }
     }
 
     async request(endpoint, options = {}, token) {
         const url = `${this.baseURL}${endpoint}`;
-        
+        const method = options.method || 'GET';
+
         const headers = {
             'Content-Type': 'application/json',
             ...options.headers
@@ -54,6 +66,9 @@ class ApiClient {
                 data = await response.text();
             }
 
+            // Логируем успешный ответ
+            logRequest(method, url, response.status, data);
+
             if (!response.ok) {
                 const error = new Error(`HTTP error! status: ${response.status}`);
                 error.status = response.status;
@@ -66,12 +81,17 @@ class ApiClient {
             clearTimeout(timeoutId);
 
             if (error.name === 'AbortError') {
-                throw new Error('Request timeout');
+                const timeoutError = new Error('Request timeout');
+                logRequest(method, url, null, null, timeoutError);
+                logError({ url, method, error: timeoutError.message });
+                throw timeoutError;
             }
 
+            // Логируем ошибку
+            logRequest(method, url, error.status || null, null, error);
             logError({
                 url,
-                method: options.method || 'GET',
+                method,
                 error: error.message,
                 status: error.status
             });
@@ -108,9 +128,9 @@ class ApiClient {
         return this.request(endpoint, {
             method: 'POST',
             body: formData,
-            headers: {} 
+            headers: {}
         }, token);
     }
 }
 
-export const api = new ApiClient(BASE_URL);
+export const api = new ApiClient();
