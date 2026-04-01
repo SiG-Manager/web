@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { usersWebClient } from "../../api/usersWebClient"
 import { Link } from "react-router-dom"
 import Const from "../../assets/Const"
+import { usersWebClient } from "../../api/webClients"
 
 const TOKEN = ""
 

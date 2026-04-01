@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { activeTrainShiftsWebClient } from "../../../../../api/activeTrainShiftsWebClient";
-import { usersWebClient } from "../../../../../api/usersWebClient";
 import Const from "../../../../../assets/Const";
 import Select from "react-select";
+import { activeShiftsWebClient, usersWebClient } from "../../../../../api/webClients";
 
 const TOKEN = ""
 
@@ -19,7 +18,7 @@ function ActiveTrainShiftInfoUpdate() {
         async function loadShiftInfo(id) {
             try {
                 setIsLoading(true)
-                const data = await activeTrainShiftsWebClient.getById(id, TOKEN)
+                const data = await activeShiftsWebClient.train.getById(id, TOKEN)
 
                 const usersData = await usersWebClient.getAll(TOKEN)
 

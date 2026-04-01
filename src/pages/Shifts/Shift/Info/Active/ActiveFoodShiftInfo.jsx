@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { activeFoodShiftsWebClient } from "../../../../../api/activeFoodShiftsWebClient";
-import { usersWebClient } from "../../../../../api/usersWebClient";
 import Const from "../../../../../assets/Const";
+import { activeShiftsWebClient, usersWebClient } from "../../../../../api/webClients";
 
 const TOKEN = ""
 
@@ -16,7 +15,7 @@ function ActiveFoodShiftsInfo() {
         async function loadShiftInfo(id) {
             try {
                 setIsLoading(true)
-                const data = await activeFoodShiftsWebClient.getById(id, TOKEN)
+                const data = await activeShiftsWebClient.food.getById(id, TOKEN)
 
                 const admin = await usersWebClient.getById(data.adminId, TOKEN)
 

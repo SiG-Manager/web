@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { usersWebClient } from "../../api/usersWebClient";
+import { usersWebClient } from "../../api/webClients";
 
 const TOKEN = ""
 

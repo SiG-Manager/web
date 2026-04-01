@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import { activeCarsShiftsWebClient } from "../../api/activeCarsShiftsWebClient";
 import { Link } from "react-router-dom";
 import Const from "../../assets/Const";
-import { usersWebClient } from "../../api/usersWebClient";
-import { activeFoodShiftsWebClient } from "../../api/activeFoodShiftsWebClient";
-import { activeTrainShiftsWebClient } from "../../api/activeTrainShiftsWebClient";
+import { activeShiftsWebClient, usersWebClient } from "../../api/webClients";
 
 const TOKEN = ""
 
@@ -27,19 +24,19 @@ function ActiveShifts() {
 
         async function loadCarsShifts() {
             setIsLoading(true)
-            var data = await activeCarsShiftsWebClient.getAll(TOKEN)
+            var data = await activeShiftsWebClient.cars.getAll(TOKEN)
             console.log(data)
             setCarsShifts(data)
         }
 
         async function loadFoodShifts() {
             setIsLoading(true)
-            var data = await activeFoodShiftsWebClient.getAll(TOKEN)
+            var data = await activeShiftsWebClient.food.getAll(TOKEN)
             setFoodShifts(data)
         }
 
         async function loadTrainShifts() {
-            var data = await activeTrainShiftsWebClient.getAll(TOKEN)
+            var data = await activeShiftsWebClient.train.getAll(TOKEN)
             setTrainShifts(data)
         }
 

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { activeCarsShiftsWebClient } from "../../../../../api/activeCarsShiftsWebClient";
-import { usersWebClient } from "../../../../../api/usersWebClient";
 import Const from "../../../../../assets/Const";
+import { activeShiftsWebClient, usersWebClient } from "../../../../../api/webClients";
 
 const TOKEN = ""
 
@@ -17,7 +16,7 @@ function ActiveCarsShiftsInfo() {
         async function loadShiftInfo(id) {
             try {
                 setIsLoading(true)
-                const data = await activeCarsShiftsWebClient.getById(id, TOKEN)
+                const data = await activeShiftsWebClient.cars.getById(id, TOKEN)
 
                 const admin = await usersWebClient.getById(data.adminId, TOKEN)
                 const support = await usersWebClient.getById(data.supportId, TOKEN)

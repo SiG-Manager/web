@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { activeFoodShiftsWebClient } from "../../../../../api/activeFoodShiftsWebClient";
-import { usersWebClient } from "../../../../../api/usersWebClient";
 import Const from "../../../../../assets/Const";
 import Select from "react-select";
+import { activeShiftsWebClient, usersWebClient } from "../../../../../api/webClients";
 
 const TOKEN = ""
 
@@ -19,7 +18,7 @@ function ActiveFoodShiftInfoUpdate() {
         async function loadShiftInfo(id) {
             try {
                 setIsLoading(true)
-                const data = await activeFoodShiftsWebClient.getById(id, TOKEN)
+                const data = await activeShiftsWebClient.food.getById(id, TOKEN)
 
                 const usersData = await usersWebClient.getAll(TOKEN)
 
@@ -77,7 +76,7 @@ function ActiveFoodShiftInfoUpdate() {
 
         try {
             setIsLoading(true)
-            await activeFoodShiftsWebClient.update(shiftInfo.id, {
+            await activeShiftsWebClient.food.update(shiftInfo.id, {
                 adminId: shiftInfo.adminId,
                 firstTicketNumber: shiftInfo.firstTicketNumber,
                 sugarAmount: shiftInfo.sugarAmount,
