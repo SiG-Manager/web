@@ -18,13 +18,12 @@
     }
 
     .custom-select__control {
-        border-color: transparent;
         box-shadow: none !important;
         background-color: transparent;
     }
 
     .custom-select__control:hover {
-        border-color: #80bdff !important;
+        border-color: transparent !important;
     }
 
     .custom-select__control--is-focused {

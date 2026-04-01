@@ -26,6 +26,10 @@
         bottom: 0;
         width: 100vw;
     }
+
+    .fs-18-mobile {
+        font-size: 18px;
+    }
 }
 
 .table td {
@@ -42,4 +46,9 @@
 
 .table-alt th {
     text-align: start;
+    font-weight: normal;
+}
+
+.error-select [class*="-control"] {
+    border-color: red !important;
 }
