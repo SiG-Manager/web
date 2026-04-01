@@ -22,6 +22,7 @@ class Const {
             train: "/shifts/close/train"
         },
 
+        shiftInfo: "/shift-info",
         // Активные смены (инфо)
         activeShiftInfo: {
             cars: "/shift-info/active/cars",
