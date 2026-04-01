@@ -85,7 +85,7 @@ function ActiveTrainShiftsInfo() {
                 </div>
                 <div className="d-flex flex-column mt-2 gap-1">
                     <Link className="btn btn-primary">Закрыть смену</Link>
-                    <Link className="btn btn-outline-primary" to={`${Const.activeTrainShiftInfoUpdateUrl}/${shiftInfo.id}`}>Изменить информацию</Link>
+                    <Link className="btn btn-outline-primary" to={`${Const.routes.activeShiftInfoUpdate.train}/${shiftInfo.id}`}>Изменить информацию</Link>
                 </div>
             </div>
         )

@@ -109,7 +109,7 @@ function Employees() {
                             <td className="">{element.role}</td>
                             <td>
                                 <div className={`d-flex justify-content-center gap-1 ${isMobile ? "flex-column" : ""}`}>
-                                    <Link className="btn btn-primary ps-1 pe-1 p-0" to={`${Const.employeeInfoUrl}/${element.id}`}>
+                                    <Link className="btn btn-primary ps-1 pe-1 p-0" to={`${Const.routes.employeeInfo}/${element.id}`}>
                                         <label className="bi-person-fill"> Инфо</label>
                                     </Link>
                                     {element.role.toLowerCase() != "unregistered" &&

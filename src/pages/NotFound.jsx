@@ -7,7 +7,7 @@ function NotFound() {
             <h1 className=" display-1 text-center mt-5">404</h1>
             <h4 className=" display-5 text-center">Страница не найдена</h4>
             <Link className="btn btn-primary mt-3"
-                to={`${Const.indexUrl}`}>
+                to={`${Const.routes.index}`}>
                 <label className=" display-6 fs-4">
                     На главную
                 </label>

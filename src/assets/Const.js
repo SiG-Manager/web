@@ -1,75 +1,111 @@
 class Const {
-    // ========== СТРАНИЦЫ ==========
-    static indexUrl = "/"
-    static loginPageUrl = "/login"
-    static registerPageUrl = "/register"
-    static employeesUrl = "/employees"
-    static employeeInfoUrl = "/employee-info"
-    static scheduleUrl = "/schedule"
 
-    // ========== СМЕНЫ ==========
-    static activeShiftsUrl = "/shifts/active"
-    static closedShiftsUrl = "/shifts/closed"
-    static openShiftUrl = "/shifts/open"
+    // ========== НОВАЯ СТРУКТУРА (routes) ==========
+    static routes = {
+        // Страницы
+        index: "/",
+        login: "/login",
+        register: "/register",
+        employees: "/employees",
+        employeeInfo: "/employee-info",
+        schedule: "/schedule",
 
-    // Закрытие смен (разные названия!)
-    static closeCarsShiftUrl = "/shifts/close/cars"
-    static closeFoodShiftUrl = "/shifts/close/food"
-    static closeTrainShiftUrl = "/shifts/close/train"
+        // Смены
+        activeShifts: "/shifts/active",
+        closedShifts: "/shifts/closed",
+        openShift: "/shifts/open",
 
-    // Активные смены (инфо)
-    static activeCarsShiftInfoUrl = "/shift-info/active/cars"
-    static activeFoodShiftInfoUrl = "/shift-info/active/food"
-    static activeTrainShiftInfoUrl = "/shift-info/active/train" 
+        // Закрытие смен
+        closeShift: {
+            cars: "/shifts/close/cars",
+            food: "/shifts/close/food",
+            train: "/shifts/close/train"
+        },
 
-    // Обновление активных смен
-    static activeCarsShiftInfoUpdateUrl = "/shift-info/active/cars/update"
-    static activeFoodShiftInfoUpdateUrl = "/shift-info/active/food/update"
-    static activeTrainShiftInfoUpdateUrl = "/shift-info/active/train/update"
+        // Активные смены (инфо)
+        activeShiftInfo: {
+            cars: "/shift-info/active/cars",
+            food: "/shift-info/active/food",
+            train: "/shift-info/active/train"
+        },
 
-    // Закрытые смены (инфо)
-    static carsShiftInfoUrl = "/shift-info/closed/cars"
-    static foodShiftInfoUrl = "/shift-info/closed/food"
-    static trainShiftInfoUrl = "/shift-info/closed/train"
+        // Обновление активных смен
+        activeShiftInfoUpdate: {
+            cars: "/shift-info/active/cars/update",
+            food: "/shift-info/active/food/update",
+            train: "/shift-info/active/train/update"
+        },
 
-    // Обновление закрытых смен
-    static carsShiftInfoUpdateUrl = "/shift-info/closed/cars/update"
-    static foodShiftInfoUpdateUrl = "/shift-info/closed/food/update"
-    static trainShiftInfoUpdateUrl = "/shift-info/closed/train/update"
+        // Закрытые смены (инфо)
+        closedShiftInfo: {
+            cars: "/shift-info/closed/cars",
+            food: "/shift-info/closed/food",
+            train: "/shift-info/closed/train"
+        },
 
-    // ========== БАЛАНС ==========
-    static balanceUrl = "/balance"
-    static balanceUpdateUrl = "/balance/update"
+        // Обновление закрытых смен
+        closedShiftInfoUpdate: {
+            cars: "/shift-info/closed/cars/update",
+            food: "/shift-info/closed/food/update",
+            train: "/shift-info/closed/train/update"
+        },
 
-    // ========== МАШИНЫ ==========
-    static carsUrl = "/balance/cars"
-    static carAddUrl = "/balance/cars/add"
-    static carUpdateUrl = "/balance/cars/update"
+        // Баланс
+        balance: "/balance",
+        balanceUpdate: "/balance/update",
 
-    // ========== СПРАВОЧНИКИ ==========
+        // Машины
+        cars: "/balance/cars",
+        carAdd: "/balance/cars/add",
+        carUpdate: "/balance/cars/update",
+    }
+
     static parkNames = [
         { value: "Галушина", label: "Галушина" },
         { value: "Сульфат", label: "Сульфат" },
         { value: "Красная пристань", label: "Красная пристань" }
     ]
 
-    // ========== ХЕЛПЕРЫ ==========
     static getPageTitle(pathName) {
         const titles = {
-            [this.indexUrl]: "Главная",
-            [this.employeesUrl]: "Сотрудники",
-            [this.scheduleUrl]: "График",
-            [this.activeShiftsUrl]: "Активные смены",
-            [this.closedShiftsUrl]: "Отчёты",
+            [this.routes.index]: "Главная",
+            [this.routes.login]: "Вход",
+            [this.routes.register]: "Регистрация",
+            [this.routes.employees]: "Сотрудники",
+            [this.routes.schedule]: "График",
+            [this.routes.activeShifts]: "Активные смены",
+            [this.routes.closedShifts]: "Отчёты",
+            [this.routes.balance]: "Склад",
+            [this.routes.cars]: "Машинки",
+
+            [this.routes.closeShift.cars]: "Закрытие смены машинок",
+            [this.routes.closeShift.food]: "Закрытие смены ваты",
+            [this.routes.closeShift.train]: "Закрытие смены паровоза",
+
+            [this.routes.carAdd]: "Добавление машинки",
+            [this.routes.carUpdate]: "Изменение машинки",
+            [this.routes.balanceUpdate]: "Изменение склада",
         }
 
-        // Точное совпадение
         if (titles[pathName]) return titles[pathName]
 
-        // Частичные совпадения
-        if (pathName.includes(this.employeeInfoUrl)) return "Информация о сотруднике"
-        if (pathName.includes("shift-info") && pathName.includes("update")) return "Изменение смены"
-        if (pathName.includes("shift-info")) return "Информация о смене"
+        if (pathName.startsWith(this.routes.employeeInfo)) return "Информация о сотруднике"
+
+        if (pathName.startsWith(this.routes.activeShiftInfo.cars)) return "Информация о смене машинок"
+        if (pathName.startsWith(this.routes.activeShiftInfo.food)) return "Информация о смене ваты"
+        if (pathName.startsWith(this.routes.activeShiftInfo.train)) return "Информация о смене паровоза"
+
+        if (pathName.startsWith(this.routes.activeShiftInfoUpdate.cars)) return "Изменение смены машинок"
+        if (pathName.startsWith(this.routes.activeShiftInfoUpdate.food)) return "Изменение смены ваты"
+        if (pathName.startsWith(this.routes.activeShiftInfoUpdate.train)) return "Изменение смены паровоза"
+
+        if (pathName.startsWith(this.routes.closedShiftInfo.cars)) return "Отчёт смены машинок"
+        if (pathName.startsWith(this.routes.closedShiftInfo.food)) return "Отчёт смены ваты"
+        if (pathName.startsWith(this.routes.closedShiftInfo.train)) return "Отчёт смены паровоза"
+
+        if (pathName.startsWith(this.routes.closedShiftInfoUpdate.cars)) return "Изменение отчёта смены машинок"
+        if (pathName.startsWith(this.routes.closedShiftInfoUpdate.food)) return "Изменение отчёта смены ваты"
+        if (pathName.startsWith(this.routes.closedShiftInfoUpdate.train)) return "Изменение отчёта смены паровоза"
 
         return "Не найдено"
     }

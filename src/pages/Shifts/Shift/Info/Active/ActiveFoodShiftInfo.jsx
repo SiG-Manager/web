@@ -89,7 +89,7 @@ function ActiveFoodShiftsInfo() {
                 </div>
                 <div className="d-flex flex-column mt-2 gap-1">
                     <Link className="btn btn-primary" to={``}>Закрыть смену</Link>
-                    <Link className="btn btn-outline-primary" to={`${Const.activeFoodShiftInfoUpdateUrl}/${shiftInfo.id}`}>Изменить информацию</Link>
+                    <Link className="btn btn-outline-primary" to={`${Const.routes.activeShiftInfoUpdate.food}/${shiftInfo.id}`}>Изменить информацию</Link>
                 </div>
             </div>
         )

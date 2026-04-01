@@ -1,5 +1,4 @@
 class ApiConst {
-    // ========== ЭНДПОИНТЫ ==========
     static endpoints = {
         users: '/users',
         userById: (id) => `/users/${id}`,

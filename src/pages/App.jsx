@@ -20,19 +20,19 @@ function App() {
             <Routes>
                 <Route element={<Layout />}>
                     <Route path="/" element={<Index />} />
-                    <Route path={`${Const.employeesUrl}`} element={<Employees/>}/>
-                    <Route path={`${Const.employeeInfoUrl}/:id`} element={<EmployeeInfo/>}/>
+                    <Route path={`${Const.routes.employees}`} element={<Employees/>}/>
+                    <Route path={`${Const.routes.employeeInfo}/:id`} element={<EmployeeInfo/>}/>
 
-                    <Route path={`${Const.activeShiftsUrl}`} element={<ActiveShifts/>}/>
-                    <Route path={`${Const.closedShiftsUrl}`} element={<ClosedShifts/>}/>
+                    <Route path={`${Const.routes.activeShifts}`} element={<ActiveShifts/>}/>
+                    <Route path={`${Const.routes.closedShifts}`} element={<ClosedShifts/>}/>
                     
-                    <Route path={`${Const.activeCarsShiftInfoUrl}/:id`} element={<ActiveCarsShiftsInfo/>}/>
-                    <Route path={`${Const.activeFoodShiftInfoUrl}/:id`} element={<ActiveFoodShiftsInfo/>}/>
-                    <Route path={`${Const.activeTrainShiftInfoUrl}/:id`} element={<ActiveTrainShiftsInfo/>}/>
+                    <Route path={`${Const.routes.activeShiftInfo.cars}/:id`} element={<ActiveCarsShiftsInfo/>}/>
+                    <Route path={`${Const.routes.activeShiftInfo.food}/:id`} element={<ActiveFoodShiftsInfo/>}/>
+                    <Route path={`${Const.routes.activeShiftInfo.train}/:id`} element={<ActiveTrainShiftsInfo/>}/>
                     
-                    <Route path={`${Const.activeCarsShiftInfoUpdateUrl}/:id`} element={<ActiveCarsShiftInfoUpdate/>}/>
-                    <Route path={`${Const.activeFoodShiftInfoUpdateUrl}/:id`} element={<ActiveFoodShiftInfoUpdate/>}/>
-                    <Route path={`${Const.activeTrainShiftInfoUpdateUrl}/:id`} element={<ActiveTrainShiftInfoUpdate/>}/>
+                    <Route path={`${Const.routes.activeShiftInfoUpdate.cars}/:id`} element={<ActiveCarsShiftInfoUpdate/>}/>
+                    <Route path={`${Const.routes.activeShiftInfoUpdate.food}/:id`} element={<ActiveFoodShiftInfoUpdate/>}/>
+                    <Route path={`${Const.routes.activeShiftInfoUpdate.train}/:id`} element={<ActiveTrainShiftInfoUpdate/>}/>
 
 
                     <Route path="*" element={<NotFound/>} />

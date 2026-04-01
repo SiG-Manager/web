@@ -73,31 +73,31 @@ function Layout() {
                             <label className="fs-4 ms-2 fw-semibold text-nowrap">ParkShift</label>
                         </div>
                     </button>
-                    <Link className="btn text-decoration-none w-100" to={`${Const.indexUrl}`} onClick={handleExpand}>
+                    <Link className="btn text-decoration-none w-100" to={`${Const.routes.index}`} onClick={handleExpand}>
                         <div className="d-flex align-items-center">
                             <i className=" fs-2 bi-house-fill"></i>
                             <label className="fs-5 ms-2 ">Главная</label>
                         </div>
                     </Link>
-                    <Link className="btn text-decoration-none w-100" to={`${Const.employeesUrl}`} onClick={handleExpand}>
+                    <Link className="btn text-decoration-none w-100" to={`${Const.routes.employees}`} onClick={handleExpand}>
                         <div className="d-flex align-items-center">
                             <i className=" fs-2 bi-people-fill "></i>
                             <label className="fs-5 ms-2 ">Сотрудники</label>
                         </div>
                     </Link>
-                    <Link className="btn text-decoration-none d-flex align-items-center w-100" to={`${Const.scheduleUrl}`} onClick={handleExpand}>
+                    <Link className="btn text-decoration-none d-flex align-items-center w-100" to={`${Const.routes.schedule}`} onClick={handleExpand}>
                         <div className="d-flex align-items-center">
                             <i className=" fs-2 bi-calendar-event "></i>
                             <label className="fs-5 ms-2 ">График</label>
                         </div>
                     </Link>
-                    <Link className="btn text-decoration-none d-flex align-items-center w-100" to={`${Const.activeShiftsUrl}`} onClick={handleExpand}>
+                    <Link className="btn text-decoration-none d-flex align-items-center w-100" to={`${Const.routes.activeShifts}`} onClick={handleExpand}>
                         <div className="d-flex align-items-center">
                             <i className=" fs-2 bi-list-ul "></i>
                             <label className="fs-5 ms-2 ">Активные смены</label>
                         </div>
                     </Link>
-                    <Link className="btn text-decoration-none d-flex align-items-center w-100" to={`${Const.closedShiftsUrl}`} onClick={handleExpand}>
+                    <Link className="btn text-decoration-none d-flex align-items-center w-100" to={`${Const.routes.closedShifts}`} onClick={handleExpand}>
                         <div className="d-flex align-items-center">
                             <i className=" fs-2 bi-list-check "></i>
                             <label className="fs-5 ms-2 ">Отчёты</label>
@@ -117,19 +117,19 @@ function Layout() {
                     <button className="btn" onClick={handleExpand}>
                         <i className=" fs-2 bi-list "></i>
                     </button>
-                    <Link className="btn text-decoration-none" to={`${Const.indexUrl}`}>
+                    <Link className="btn text-decoration-none" to={`${Const.routes.index}`}>
                         <i className=" fs-2 bi-house-fill "></i>
                     </Link>
-                    <Link className="btn text-decoration-none pc-visible" to={`${Const.employeesUrl}`}>
+                    <Link className="btn text-decoration-none pc-visible" to={`${Const.routes.employees}`}>
                         <i className=" fs-2 bi-people-fill "></i>
                     </Link>
-                    <Link className="btn text-decoration-none" to={`${Const.scheduleUrl}`}>
+                    <Link className="btn text-decoration-none" to={`${Const.routes.schedule}`}>
                         <i className=" fs-2 bi-calendar-event "></i>
                     </Link>
-                    <Link className="btn text-decoration-none pc-visible" to={`${Const.activeShiftsUrl}`}>
+                    <Link className="btn text-decoration-none pc-visible" to={`${Const.routes.activeShifts}`}>
                         <i className=" fs-2 bi-list-ul"></i>
                     </Link>
-                    <Link className="btn text-decoration-none pc-visible" to={`${Const.closedShiftsUrl}`}>
+                    <Link className="btn text-decoration-none pc-visible" to={`${Const.routes.closedShifts}`}>
                         <i className=" fs-2 bi-list-check "></i>
                     </Link>
                     <button className="btn text-decoration-none pc-visible" onClick={handleThemeChange}>

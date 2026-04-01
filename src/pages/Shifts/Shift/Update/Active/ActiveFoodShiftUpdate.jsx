@@ -85,7 +85,7 @@ function ActiveFoodShiftInfoUpdate() {
                 ticketPrice: shiftInfo.ticketPrice,
                 openDateTime: shiftInfo.openDateTime
             }, TOKEN)
-            navigate(`${Const.activeFoodShiftInfoUrl}/${shiftInfo.id}`)
+            navigate(`${Const.routes.activeShiftInfo.food}/${shiftInfo.id}`)
         } catch (error) {
             alert(error)
         } finally {
@@ -214,7 +214,7 @@ function ActiveFoodShiftInfoUpdate() {
                 <button type="submit" className="btn btn-primary mt-1">
                     Подтвердить изменения
                 </button>
-                <Link className="btn btn-outline-primary" to={`${Const.activeFoodShiftInfoUrl}/${shiftInfo.id}`}>
+                <Link className="btn btn-outline-primary" to={`${Const.routes.activeShiftInfo.food}/${shiftInfo.id}`}>
                     Назад
                 </Link>
             </form>

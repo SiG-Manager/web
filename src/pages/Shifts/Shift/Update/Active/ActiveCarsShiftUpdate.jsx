@@ -82,7 +82,7 @@ function ActiveCarsShiftInfoUpdate() {
                 ticketPrice: shiftInfo.ticketPrice,
                 openDateTime: shiftInfo.openDateTime
             }, TOKEN)
-            navigate(`${Const.activeCarsShiftInfoUrl}/${shiftInfo.id}`)
+            navigate(`${Const.routes.activeShiftInfo.cars}/${shiftInfo.id}`)
         } catch (error) {
             alert(error)
         } finally {
@@ -211,7 +211,7 @@ function ActiveCarsShiftInfoUpdate() {
                 <button type="submit" className="btn btn-primary mt-1">
                     Подтвердить изменения
                 </button>
-                <Link className="btn btn-outline-primary" to={`${Const.activeCarsShiftInfoUrl}/${shiftInfo.id}`}>
+                <Link className="btn btn-outline-primary" to={`${Const.routes.activeShiftInfo.cars}/${shiftInfo.id}`}>
                     Назад
                 </Link>
             </form>

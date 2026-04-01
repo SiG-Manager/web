@@ -103,10 +103,10 @@ function ClosedShifts() {
                                         <td>{new Date(element.openDateTime).toLocaleTimeString()}</td>
                                         <td>
                                             <div className={`d-flex justify-content-center gap-1 ${isMobile ? "flex-column" : ""}`}>
-                                                <Link className="btn btn-primary ps-1 pe-1 p-0" to={`${Const.activeCarsShiftInfoUrl}/${element.id}`}>
+                                                <Link className="btn btn-primary ps-1 pe-1 p-0" to={`${Const.routes.activeShiftInfo.cars}/${element.id}`}>
                                                     <label> Инфо</label>
                                                 </Link>
-                                                <Link className="btn btn-outline-danger ps-1 pe-1 p-0" to={`${Const.employeeInfoUrl}/${element.id}`}>
+                                                <Link className="btn btn-outline-danger ps-1 pe-1 p-0" to={`${Const.routes.employeeInfo}/${element.id}`}>
                                                     <label> Закрыть</label>
                                                 </Link>
                                             </div>
@@ -151,10 +151,10 @@ function ClosedShifts() {
                                         <td>{new Date(element.openDateTime).toLocaleTimeString()}</td>
                                         <td>
                                             <div className={`d-flex justify-content-center gap-1 ${isMobile ? "flex-column" : ""}`}>
-                                                <Link className="btn btn-primary ps-1 pe-1 p-0" to={`${Const.activeFoodShiftInfoUrl}/${element.id}`}>
+                                                <Link className="btn btn-primary ps-1 pe-1 p-0" to={`${Const.routes.activeShiftInfo.food}/${element.id}`}>
                                                     <label>Инфо</label>
                                                 </Link>
-                                                <Link className="btn btn-outline-danger ps-1 pe-1 p-0" to={`${Const.employeeInfoUrl}/${element.id}`}>
+                                                <Link className="btn btn-outline-danger ps-1 pe-1 p-0" to={`${Const.routes.employeeInfo}/${element.id}`}>
                                                     <label>Закрыть</label>
                                                 </Link>
                                             </div>
@@ -197,10 +197,10 @@ function ClosedShifts() {
                                         <td>{new Date(element.openDateTime).toLocaleTimeString()}</td>
                                         <td>
                                             <div className={`d-flex justify-content-center gap-1 ${isMobile ? "flex-column" : ""}`}>
-                                                <Link className="btn btn-primary ps-1 pe-1 p-0" to={`${Const.activeTrainShiftInfoUrl}/${element.id}`}>
+                                                <Link className="btn btn-primary ps-1 pe-1 p-0" to={`${Const.routes.activeShiftInfo.train}/${element.id}`}>
                                                     <label>Инфо</label>
                                                 </Link>
-                                                <Link className="btn btn-outline-danger ps-1 pe-1 p-0" to={`${Const.employeeInfoUrl}/${element.id}`}>
+                                                <Link className="btn btn-outline-danger ps-1 pe-1 p-0" to={`${Const.routes.employeeInfo}/${element.id}`}>
                                                     <label>Закрыть</label>
                                                 </Link>
                                             </div>

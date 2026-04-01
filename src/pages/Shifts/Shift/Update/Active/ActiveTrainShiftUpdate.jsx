@@ -80,7 +80,7 @@ function ActiveTrainShiftInfoUpdate() {
                 ticketPrice: shiftInfo.ticketPrice,
                 openDateTime: shiftInfo.openDateTime
             }, TOKEN)
-            navigate(`${Const.activeTrainShiftInfoUrl}/${shiftInfo.id}`)
+            navigate(`${Const.routes.activeShiftInfo.train}/${shiftInfo.id}`)
         } catch (error) {
             alert(error)
         } finally {
@@ -193,7 +193,7 @@ function ActiveTrainShiftInfoUpdate() {
                 <button type="submit" className="btn btn-primary mt-1">
                     Подтвердить изменения
                 </button>
-                <Link className="btn btn-outline-primary" to={`${Const.activeTrainShiftInfoUrl}/${shiftInfo.id}`}>
+                <Link className="btn btn-outline-primary" to={`${Const.routes.activeShiftInfo.train}/${shiftInfo.id}`}>
                     Назад
                 </Link>
             </form>
